@@ -8,8 +8,17 @@ $(document).ready(function(){
     })
 
     $('form').on('submit', function(e){
-        console.log('submit');
         e.preventDefault();
+        const enderecoDaNovaImagem = $("#endereço-imagem-nova").val();
+        const novoItem = $('<li></li>');
+        $(`<img src="${enderecoDaNovaImagem}" />`).appendTo(novoItem);
+        $(`
+            <div class="overlay-imagem-link">
+                <a href="${enderecoDaNovaImagem}" target="_blank" title="Vre imagem em tamanho real"</a>
+            </div>
+        `).appendTo(novoItem);
+        $(novoItem).appendTo('ul');
+        $('#endereço-imagem-nova').val('');
     })
 })
 
